@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Advice Column</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>School Advice Column</h1>
+        <p>Ask questions and get guidance!</p>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>Ask Your Question</h2>
+            <form id="questionForm">
+                <textarea id="questionInput" placeholder="Type your question here..." required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section class="responses-section">
+            <h2>Responses</h2>
+            <ul id="responsesList"></ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 School Advice Column</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
