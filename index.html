@@ -4,7 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Advice Column</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background: #0078D7;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .question-box {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            background: #0078D7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+        .responses {
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #f1f1f1;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,21 +61,32 @@
         <p>Ask questions and get guidance!</p>
     </header>
     <main>
-        <section class="form-section">
+        <div class="question-box">
             <h2>Ask Your Question</h2>
-            <form id="questionForm">
-                <textarea id="questionInput" placeholder="Type your question here..." required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-        <section class="responses-section">
+            <textarea id="question" rows="4" placeholder="Type your question here..."></textarea>
+            <button onclick="submitQuestion()">Submit</button>
+        </div>
+        <div class="responses" id="responses">
             <h2>Responses</h2>
-            <ul id="responsesList"></ul>
-        </section>
+            <p>Submit a question to see answers here!</p>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2024 School Advice Column</p>
+        <p>© 2024 School Advice Column</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        function submitQuestion() {
+            const question = document.getElementById('question').value.trim();
+            if (question) {
+                const responseContainer = document.getElementById('responses');
+                const newResponse = document.createElement('p');
+                newResponse.textContent = `Q: ${question}`;
+                responseContainer.appendChild(newResponse);
+                document.getElementById('question').value = ''; // Clear the textarea
+            } else {
+                alert('Please enter a question!');
+            }
+        }
+    </script>
 </body>
 </html>
